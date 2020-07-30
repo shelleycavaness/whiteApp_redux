@@ -14,12 +14,11 @@ import store from "./store";
 export const getBooks = (filter) => {
     return dispatch => {
         dispatch({ type: 'FETCH_BOOKS' });
-
         return api
             .get(`/books/${filter ? filter : ''}`)
             .then(response => {
                 const books = response.data;
-
+                console.log('books---------------', books)
                 if (books) {
                     dispatch({ type: 'SET_BOOKS', payload: books });
                 }
@@ -52,23 +51,6 @@ const collection = (state = null, action) => {
     }
 }
 
-// Départ du state
-
-// bookStore = {
-//     collection: null,
-//     isLoading: false,
-//     selectedBook: null
-// }
-
-// Je dis à mon app, ok récupère moi les livres
-// dispatch({ type: 'FETCH_BOOKS' });
-
-// bookStore = {
-//     collection: null,
-//     isLoading: true,
-//     selectedBook: null
-// }
-
 const isLoading = (state = false, action) => {
     switch (action.type) {
         case "FETCH_BOOKS":
@@ -78,6 +60,18 @@ const isLoading = (state = false, action) => {
         default:
             return state
     }
+}
+
+
+const selectedBook = (state = null, action) => {
+  switch (action.type) {
+      case "SELECT_BOOK":
+          return action.payload;
+      case "CLEAR_BOOK":
+          return null;
+      default:
+          return state
+  }
 }
 
 // let book = {
@@ -94,18 +88,6 @@ const isLoading = (state = false, action) => {
 //     DISPATCH({ type: 'SELECT_BOOK', payload: book })
 //     DISPATCH({ type: 'SELECT_BOOK', payload: book })
 // }
-
-
-const selectedBook = (state = null, action) => {
-    switch (action.type) {
-        case "SELECT_BOOK":
-            return action.payload;
-        case "CLEAR_BOOK":
-            return null;
-        default:
-            return state
-    }
-}
 
 const books = combineReducers({
     collection,
