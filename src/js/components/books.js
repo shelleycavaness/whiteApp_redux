@@ -26,9 +26,10 @@ const Books = (props) => {
             <header>
                 <select value={currentFilter} onChange={handleFilter}>
                     <option value={''}>Tous</option>
-                    <option value={'?_sort=title:ASC'}>Titre alphabetique</option>
-                    <option value={'?_sort=created_at:ASC'}>Date de création</option>
+                    <option value={'?_sort=title:ASC'}>Titles alphabetical</option>
+                    <option value={'?_sort=publication:ASC'}>Publication date</option>
                     <option value={'?borrowed=false'} >Livre(s) disponible(s)</option>
+                    <option value={'?borrowed=true'} >Books checked-out</option>
                 </select>
             </header>
 
@@ -45,6 +46,7 @@ const Books = (props) => {
                                     <p className="lh-4">{book.author}</p>
                                     <p className="lh-4">{book.description}</p>
                                     <span className="text-blue font-bold">{`Date d'ajout : ${date.toLocaleDateString('fr-FR')}`}</span>
+                                    <p className="text-blue font-bold">{`publication date : ${book.publication}`}</p>
                                 </div>
                                 <hr className="m-0" />
                             </li>

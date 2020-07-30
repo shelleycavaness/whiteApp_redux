@@ -1,4 +1,5 @@
 # white app redux
 
-npm run dev
+start with : npm run dev
 #### Description de l'applicaiton  
+Whiteapp react / redux with a simple Store
