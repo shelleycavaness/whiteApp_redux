@@ -10,11 +10,17 @@ const Header = (props) => {
     
 
     return (
-        <header className="">
+        <header className="header-wrapper">
             <nav className="common-container py-3">
                 <ul className="flex justify-between">
                     <li>
-                        <Link className="font-black f1 text-blue-dark" to="/">Home</Link>
+                        <Link className="font-black f3 text-blue-dark" to="/">Bookstore home</Link>
+                    </li>
+                    <li>
+                        <Link className="font-black f3 text-blue-dark" to="/login">login</Link>
+                    </li>
+                    <li>
+                        <Link className="font-black f4 text-blue-dark" to="/dashboard">Browse books</Link>
                     </li>
                   
                 </ul>

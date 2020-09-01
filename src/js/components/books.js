@@ -24,15 +24,14 @@ const Books = (props) => {
 
     return (
         <section>
-
             <header>
-                {/* <select value={currentFilter} onChange={handleFilter}>
+                <select value={currentFilter} onChange={handleFilter}>
                     <option value={''}>Tous</option>
                     <option value={'?_sort=title:ASC'}>Titles alphabetical</option>
                     <option value={'?_sort=publication:ASC'}>Publication date</option>
                     <option value={'?borrowed=false'} >Livre(s) disponible(s)</option>
                     <option value={'?borrowed=true'} >Books checked-out</option>
-                </select> */}
+                </select>
                 <select value={currentFilter} onChange={handleFilter}>
                     <option value={''}>all genres</option>
                     <option value={'?genre=autobiography'}>autobiography</option>
@@ -47,12 +46,8 @@ const Books = (props) => {
                 {
                     books && books.length > 0 ? books.map(book => {
 
-                        const date = new Date(book.created_at);
-
                         return (
-
-                           <BookItem book={book}/>
-                           
+                          <BookItem book={book} />
                         )
                     }) : <span>No books</span>
                 }
@@ -62,3 +57,5 @@ const Books = (props) => {
 }
 
 export default Books
+
+ //     {/* <BookItem book={book} /> */}

@@ -18,7 +18,7 @@ export const getBooks = (filter) => {
             .get(`/books/${filter ? filter : ''}`)
             .then(response => {
                 const books = response.data;
-                console.log('books---------------', books)
+                // console.log('books---------------', books)
                 if (books) {
                     dispatch({ type: 'SET_BOOKS', payload: books });
                 }

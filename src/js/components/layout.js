@@ -4,7 +4,7 @@ import '../../less/style.less'
 
 const Layout = (props) => {
     return (
-        <div className="app-wrapper bg-grey">
+        <div className="main-wrapper">
            
             <Header />
             <main className="common-container">

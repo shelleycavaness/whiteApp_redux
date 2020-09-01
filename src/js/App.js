@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Home from './pages/home';
+import Login from './pages/loginPage'
 import Layout from './components/layout';
+import Dashboard from './pages/dashboard'
 
 
 const App = () => {
@@ -15,15 +17,17 @@ const App = () => {
     }, [])
 
     return (
-        <Router>
+      <Router>
             <Layout>
                 <Switch>
-                    
-                    <Route path="/" component={Home} />
-
+                    <Route path="/login" component={Login} />
+                    <Route exact path="/" component={Home} />
+                    <Route path="/dashboard/" component={Dashboard} />
+              
                 </Switch>
             </Layout>
         </Router>
+                
     )
 }
 
