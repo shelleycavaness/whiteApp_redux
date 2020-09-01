@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector} from "react-redux"; 
 import { getBooks } from '../store/books'
+import BookItem from './bookItem';
+// import BookItem from './bookItem';
 
 const Books = (props) => {
   const dispatch = useDispatch();
@@ -24,13 +26,21 @@ const Books = (props) => {
         <section>
 
             <header>
-                <select value={currentFilter} onChange={handleFilter}>
+                {/* <select value={currentFilter} onChange={handleFilter}>
                     <option value={''}>Tous</option>
                     <option value={'?_sort=title:ASC'}>Titles alphabetical</option>
                     <option value={'?_sort=publication:ASC'}>Publication date</option>
                     <option value={'?borrowed=false'} >Livre(s) disponible(s)</option>
                     <option value={'?borrowed=true'} >Books checked-out</option>
+                </select> */}
+                <select value={currentFilter} onChange={handleFilter}>
+                    <option value={''}>all genres</option>
+                    <option value={'?genre=autobiography'}>autobiography</option>
+                    <option value={'?genre=fiction'}>fiction</option>
+                    <option value={'?genre=computer science'} > computer science</option>
+                   
                 </select>
+
             </header>
 
             <ul className="flex flex-col">
@@ -40,16 +50,9 @@ const Books = (props) => {
                         const date = new Date(book.created_at);
 
                         return (
-                            <li className="" key={book.id}>
-                                <div className="p-4">
-                                    <span className="font-bold uppercases f4">{book.title}</span>
-                                    <p className="lh-4">{book.author}</p>
-                                    <p className="lh-4">{book.description}</p>
-                                    <span className="text-blue font-bold">{`Date d'ajout : ${date.toLocaleDateString('fr-FR')}`}</span>
-                                    <p className="text-blue font-bold">{`publication date : ${book.publication}`}</p>
-                                </div>
-                                <hr className="m-0" />
-                            </li>
+
+                           <BookItem book={book}/>
+                           
                         )
                     }) : <span>No books</span>
                 }
