@@ -10,9 +10,9 @@ const Header = (props) => {
     
 
     return (
-        <header className="header-wrapper">
-            <nav className="common-container py-3">
-                <ul className="flex justify-between">
+        <header className="header-wrapper" >
+            <nav className="">
+                <ul className=" homeClass">
                     <li>
                         <Link className="font-black f3 text-blue-dark" to="/">Bookstore home</Link>
                     </li>

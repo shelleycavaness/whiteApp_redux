@@ -10,7 +10,7 @@ const Home = (props) => {
 
     return (
        
-      <div>
+      <div >
         <Books/>
       </div>
     )

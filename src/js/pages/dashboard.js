@@ -16,45 +16,40 @@ const Dashboard = () => {
 
   if (booksAreLoading) return <span className="f1 font-bold text-green">Fetching books...</span>
 
-  const handleFilter = (event) => {
-      dispatch(getBooks(event.target.value));
-      setCurrentFilter(event.target.value);
+
+  const filterAll =(e) =>{
+     dispatch(getBooks(''))
   }
+  const filterFiction =(e) =>{
+    dispatch(getBooks('?genre=fiction'))
+ }
   const filterAuto =(e) =>{
-     dispatch(getBooks('?genre=autobiography'))
+    dispatch(getBooks('?genre=autobiography'))
   }
-    return (
-      <div>
-      <section>
-         <header>
+  const filterComputer =(e) =>{
+  dispatch(getBooks('?genre=computer science'))
+  }
 
-         <select value={currentFilter} onChange={handleFilter}>
-                    <option value={''}>all genres</option>
-                    <option value={'?genre=autobiography'}>autobiography</option>
-                    <option value={'?genre=fiction'}>fiction</option>
-                    <option value={'?genre=computer science'} > computer science</option>
-                   
-        </select>
-   
-      <button onClick={ filterAuto}>autobiography</button>
-     
-   
-      </header>
-
-            <ul className="flex flex-col">
-                {
-                    books && books.length > 0 ? books.map(book => {
-
-                        return (
-                          <BookItem book={book} />
-                        )
-                    }) : <span>No books</span>
-                }
-            </ul>
-        </section>
-    )
-        
-      </div>
-    )
+  return (
+   <div style={{backgroundColor:"gainsboro"}}>
+    <section>
+     <header>
+        <button onClick={filterAll}>all</button>
+        <button onClick={filterFiction}>fiction</button>
+        <button onClick={filterAuto}>autobiography</button>
+        <button onClick={filterComputer}>computer science</button>
+     </header>
+       <ul className="flex flex-col">
+        {
+          books && books.length > 0 ? books.map(book => {
+           return (
+              <BookItem book={book} />
+             )
+           }) : <span>No books</span>
+        }
+        </ul>
+    </section>
+   </div>
+  )
 }
 export default Dashboard;

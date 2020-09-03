@@ -26,17 +26,16 @@ export const DetailPage = (props) => {
 
   if(detailBook.image){
     console.log('**************detailBook.image :>> ', detailBook.image);
-    let url = `http://localhost:1337` + detailBook.image[0].url
+    url = `http://localhost:1337` + detailBook.image[0].url
     console.log('url :>> ', url);
-  }  
-
+  }
 
   function handleClick() {
     history.push("/browse");
   }
   return (
     <div>
-     <h2>return back</h2>
+     <h2>Detail screen</h2>
      <div className="p-4">
           <span className="font-bold uppercases f4">{detailBook.title}</span>
           <p className="lh-4">{detailBook.author}</p>
@@ -47,7 +46,7 @@ export const DetailPage = (props) => {
         <img  style={{height:"100px", width:"100px"}} 
         src={`http://localhost:1337`+ detailBook.image[0].url} 
         /> 
-        <img  style={{height:"100px", width:"100px"}} 
+        <img style={{height:"100px", width:"100px"}} 
         src={url} 
         /> 
         </div>

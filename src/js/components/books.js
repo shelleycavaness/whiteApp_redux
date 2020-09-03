@@ -22,7 +22,7 @@ const Books = (props) => {
     }
 
     return (
-        <section>
+        <section className={""}>
             <header>
                 <select value={currentFilter} onChange={handleFilter}>
                     <option value={''}>Tous</option>
