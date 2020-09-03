@@ -8,7 +8,7 @@ import BookItem from '../components/bookItem';
 export const DetailPage = (props) => {
   let { id } = useParams();
   let history = useHistory();
-  let url ;
+  let url = '' ;
   const [detailBook, setDetailBook] = useState({})
   const [imgStrapi, setImage] = useState('')
   // const url = `http://localhost:1337` + detailBook.image[0].url
@@ -25,7 +25,10 @@ export const DetailPage = (props) => {
   }, [])
 
   if(detailBook.image){
-    let url = `http://localhost:1337` + detailBook.image[0].url}  
+    console.log('**************detailBook.image :>> ', detailBook.image);
+    let url = `http://localhost:1337` + detailBook.image[0].url
+    console.log('url :>> ', url);
+  }  
 
 
   function handleClick() {
@@ -44,7 +47,7 @@ export const DetailPage = (props) => {
         <img  style={{height:"100px", width:"100px"}} 
         src={`http://localhost:1337`+ detailBook.image[0].url} 
         /> 
-         <img  style={{height:"100px", width:"100px"}} 
+        <img  style={{height:"100px", width:"100px"}} 
         src={url} 
         /> 
         </div>
