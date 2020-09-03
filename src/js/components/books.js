@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector} from "react-redux"; 
 import { getBooks } from '../store/books'
 import BookItem from './bookItem';
-// import BookItem from './bookItem';
 
 const Books = (props) => {
   const dispatch = useDispatch();

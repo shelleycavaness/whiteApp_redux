@@ -51,6 +51,7 @@ const collection = (state = null, action) => {
     }
 }
 
+
 const isLoading = (state = false, action) => {
     switch (action.type) {
         case "FETCH_BOOKS":

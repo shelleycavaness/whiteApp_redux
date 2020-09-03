@@ -1,20 +1,14 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
+import DetailPage from '../pages/detail'
 
 const BookItem = ({book}) => {
-
-  console.log('each book ===============', book.author)
   const date = new Date(book.created_at);
-  console.log('date666666666666666', date)
-  console.log('book.image777777777', book.image[0].url)
+  // console.log('book.image777777777', book.image[0].url)
   const image = `http://localhost:1337` + book.image[0].url
   //in the click we recuperate the book object to be able to navigate to the new page 
-  const handleClick = (bookId) => {
-    bookId : book,
-    console.log('parmas', bookId)
-    // now navigate to new page with the information in bookId
-    ///'books/id'
-
+  const getId = (params) => {
+    return book.id
   }
 
   return(
@@ -27,7 +21,10 @@ const BookItem = ({book}) => {
 
           <span className="text-blue font-bold">{`Date d'ajout : ${date.toLocaleDateString('fr-FR')}`}</span>
           <p className="text-blue font-bold">{`publication date : ${book.publication}`}</p>
-          <img onClick={handleClick} style={{height:"100px", width:"100px"}} src={image} />
+          <Link to={`/books/${book.id}`} >   {/*this uses id of the book object as the url*/}
+            <img  style={{height:"100px", width:"100px"}} src={image} /> 
+          </Link>
+          
       </div>
       <hr className="m-0" />
     </li>                            

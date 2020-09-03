@@ -5,6 +5,7 @@ import Home from './pages/home';
 import Login from './pages/loginPage'
 import Layout from './components/layout';
 import Dashboard from './pages/dashboard'
+import DetailPage from './pages/detail'
 
 
 const App = () => {
@@ -22,8 +23,8 @@ const App = () => {
                 <Switch>
                     <Route path="/login" component={Login} />
                     <Route exact path="/" component={Home} />
-                    <Route path="/dashboard/" component={Dashboard} />
-              
+                    <Route path="/browse/" component={Dashboard} />
+                    <Route path="/books/:id" component={DetailPage} />
                 </Switch>
             </Layout>
         </Router>
