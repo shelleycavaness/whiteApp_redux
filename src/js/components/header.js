@@ -20,7 +20,7 @@ const Header = (props) => {
                         <Link className="font-black f3 text-blue-dark" to="/login">login</Link>
                     </li>
                     <li>
-                        <Link className="font-black f4 text-blue-dark" to="/browse">Browse books</Link>
+                        <Link className="font-black f4 text-blue-dark" to="/dashboard">Browse books</Link>
                     </li>
                   
                 </ul>

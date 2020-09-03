@@ -31,13 +31,7 @@ const Books = (props) => {
                     <option value={'?borrowed=false'} >Livre(s) disponible(s)</option>
                     <option value={'?borrowed=true'} >Books checked-out</option>
                 </select>
-                <select value={currentFilter} onChange={handleFilter}>
-                    <option value={''}>all genres</option>
-                    <option value={'?genre=autobiography'}>autobiography</option>
-                    <option value={'?genre=fiction'}>fiction</option>
-                    <option value={'?genre=computer science'} > computer science</option>
-                   
-                </select>
+             
 
             </header>
 

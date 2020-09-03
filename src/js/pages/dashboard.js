@@ -1,6 +1,8 @@
 
 import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector} from "react-redux"; 
+import { Link } from 'react-router-dom';
+
 import { getBooks } from '../store/books'
 import BookItem from '../components/bookItem';
 const Dashboard = () => {
@@ -32,7 +34,14 @@ const Dashboard = () => {
 
   return (
    <div style={{backgroundColor:"gainsboro"}}>
+          <div className="links">
+          <Link to={`/`} className="link">Profile</Link>
+          <Link to={`/home/comments`} className="link">Comments</Link>
+          <Link to={`/home/contact`} className="link">Contact</Link>
+        </div>
+   
     <section>
+
      <header>
         <button onClick={filterAll}>all</button>
         <button onClick={filterFiction}>fiction</button>

@@ -8,11 +8,9 @@ import BookItem from '../components/bookItem';
 export const DetailPage = (props) => {
   let { id } = useParams();
   let history = useHistory();
-  let url = '' ;
+  let url = '' ; //the variable is initialed to avoid an error at rendering
   const [detailBook, setDetailBook] = useState({})
-  const [imgStrapi, setImage] = useState('')
-  // const url = `http://localhost:1337` + detailBook.image[0].url
-    // let image = `http://localhost:1337` + detailBook.image[0].url
+
   // use strapi admin to find the exact route for the image
   useEffect(()=>{
     api 
@@ -23,7 +21,9 @@ export const DetailPage = (props) => {
      })
      .catch(err => console.log('err fetching book', err))
   }, [])
-
+// this is where we set the book image so that it doesnt throw an error
+//if we created the variable here we would not have access 
+//because of the local scope of the function
   if(detailBook.image){
     console.log('**************detailBook.image :>> ', detailBook.image);
     url = `http://localhost:1337` + detailBook.image[0].url
@@ -31,7 +31,7 @@ export const DetailPage = (props) => {
   }
 
   function handleClick() {
-    history.push("/browse");
+    history.push("/");
   }
   return (
     <div>
@@ -43,9 +43,7 @@ export const DetailPage = (props) => {
 
      {     detailBook.image && 
       (   <div>        
-        <img  style={{height:"100px", width:"100px"}} 
-        src={`http://localhost:1337`+ detailBook.image[0].url} 
-        /> 
+      
         <img style={{height:"100px", width:"100px"}} 
         src={url} 
         /> 
